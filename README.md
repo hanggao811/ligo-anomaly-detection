@@ -27,9 +27,9 @@ ligo-anomaly-detection/
 │   ├── model.ipynb    # Notebook for testing with your data
 │   └── TransformerHDRfinal.ipynb    # Notebook for training the model
 ├── data/                
-│   ├── background.npz    # bakcground data used for training the model's reconstruction ability
-│   ├── bbh_for_challenge.npy   # bbh data used for testing the pretrained model
-│   └── sglf_for_challenge.npy    # sine-gaussian data used for testing the pretrained model
+│   ├── background.npz    # was deleted due to file size, can be downloaded through the challenge website if needed
+│   ├── bbh_for_challenge.npy   # was deleted due to file size, can be downloaded through the challenge website if needed
+│   └── sglf_for_challenge.npy    #was deleted due to file size, can be downloaded through the challenge website if needed
 ├── requirements.txt         # Python dependencies, will be added soon🤔
 └── README.md
 
