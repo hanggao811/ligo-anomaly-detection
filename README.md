@@ -17,33 +17,40 @@ This project detects anomalies in LIGO gravitational wave data using a custom Te
 Data Preparation
 Place your input data (e.g., trial_data.hdf5) in the data/ folder.
 
-Directory structure after setup:
-ligo-anomaly-detection/
-├── Submission_file/ #file consist the pre-trained models and the codes
-│   ├── model_(91.0)(91.1).keras    # Pre-trained model 1
-│   ├── model_(91.9)(88.8).keras    # Pre-trained model 2
-│   ├── model_(94.0)(90.8).keras    # Pre-trained model 3
-│   ├── model_2.keras    # model classifies the anomaly from the background with model 1,2,3
-│   ├── model.ipynb    # Notebook for testing with your data
-│   └── TransformerHDRfinal.ipynb    # Notebook for training the model
-├── data/                
-│   ├── background.npz    # was deleted due to file size, can be downloaded through the challenge website if needed
-│   ├── bbh_for_challenge.npy   # was deleted due to file size, can be downloaded through the challenge website if needed
-│   └── sglf_for_challenge.npy    #was deleted due to file size, can be downloaded through the challenge website if needed
-├── requirements.txt         # Python dependencies, will be added soon🤔
-└── README.md
+Directory and File Descriptions
+Submission_file/
+Contains files required for submission
+model_(91.0)(91.1).keras
+Pre-trained model version 1 for anomaly detection in LIGO data.
+model_(91.9)(88.8).keras
+Pre-trained model version 2 for anomaly detection in LIGO data.
+model_(94.0)(90.8).keras
+Pre-trained model version 3 for anomaly detection in LIGO data.
+model.keras
+A model designed to distinguish anomalies from background noise using the predictions from models 1, 2, and 3.
+model.ipynb
+A Jupyter notebook for testing the pre-trained models using custom input data, guiding users through loading the models and making predictions.
+data/
+Directory containing input datasets. Some files were deleted due to size constraints but can be downloaded at the challenge website as needed:
+background.npz: Contains background noise data used for training or testing.
+bbh_for_challenge.npy: Data representing binary black hole signals for model training/testing.
+sglf_for_challenge.npy: Simulated sine-Gaussian signals used for anomaly detection training.
+requirements.txt
+List of Python dependencies necessary to run the models and notebooks. 
+TransformerHDR1.1.ipynb
+A Jupyter notebook for training the model 1,2,3 though the parameters need be tuned
+TransformerHDRfinal.ipynb
+A Jupyter notebook for training the transformer-based anomaly detection model from scratch using the provided datasets.
+README.md
 
-Usage
-Test with Your Data
-Open model.ipynb
-# Modify the input path to your data
-# The data, due to the requirements of the challenge, should be in the shape of (N, 200, 2),
-# where 200 represents the time steps, and 2 corresponds to the LIGO Livingston and LIGO Hanford data.
+Instructions for setting up the project, installing dependencies, and testing the models using input data.
+To Test with Your Data
+1.Open model.ipynb
+2.Modify the input path to your data(The data, due to the requirements of the challenge, should be in the shape of (N, 200, 2),
+where 200 represents the time steps, and 2 corresponds to the LIGO Livingston and LIGO Hanford data.)
 input_data = load_hdf5_data("../trial_data.hdf5")
-
-# Initialize the model and load the pre-trained weights or configuration
+3.Initialize the model and load the pre-trained weights or configuration
 model = Model()
 model.load()
-
-# Predict using the model and the provided input data
+4.Predict using the model and the provided input data
 predictions = model.predict(input_data)
